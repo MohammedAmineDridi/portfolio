@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Smart & Autonomous Farming System</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+
+<style>
+	.image_container_same_line {
+  text-align: center; /* Optional: Center the images within the container */
+}
+
+.img {
+  display: inline-block;
+  max-width: 100%; /* Optional: Ensure images do not exceed their container width */
+  /*height: auto; /* Maintain aspect ratio */
+  margin: 5px; /* Optional: Add margin between images */
+}
+</style>
+
+<body>
+
+<div class="jumbotron text-center">
+
+<h1 style="color: #cc064c;">Smart & Autonomous Farming System</h1>
+
+<p style="text-align: left;margin-left: 10px;">- The goal of this project to create a smart and autonomous IOT farming system without human interaction with a system that can take all measurements from the farm for example : temperature,rain status,snow detection,soil moisture,tank water level indication,... and take decision from those measurements like : enable the irrigation motor that controls the irrigation electrovalve or water tank solenoid using a servo motor to open/close those valves in a certain angle given by PWM signal , also you can command those actuators using GPRS module that communicates with an application to give you all farm informations and to control remotely those actuators .
+
+</p> 
+
+<p>
+This project is composed of <b style="color: orange;"> 2 circuits </b> : 
+</p>
+
+<p style="text-align: left;margin-left: 10px;"> 
+<b style="color:#58B47E;"> Circuit 1 : </b> - It's smart and autonomous solar panel tracker to control the solar panel rotation toward the sun direction to get more energy harvesting from the sun and to power the main farming circuit using voltage across the solar panel cells .
+</p>
+
+<p style="text-align: left;margin-left: 10px;"> 
+<b style="color:#58B47E;"> 
+Circuit 2 : </b> : - It's the main circuit that gets all farming measurements from the embedded sensors and actuators to autonomously control the farm .
+
+</div>
+  
+<div class="container">
+  <!-------------------- ROW : Concept & design phase ------------------------- --> 
+
+  <div class="row">
+      <h2 style="color:#21007D"> I - Concept & System Design Phase :</h2>
+      <h3 style="color:green"> 1 - Sensors & Actuators : </h3>
+      <h3 style="color:green"> a - Sensors : </h3>
+      <h4>LDR sensor : to measure the amount of light in specific contour .</h4>
+      <h4>Soil moisture sensor : to measure the farm soil moisture .</h4>
+      <h4>Water level indicator : to get the percentage of water in the water tank .</h4>
+      <h4>Temperature sensor : to get the farm temperature .</h4> 
+      <h4>Rain sensor : to get the rain status .</h4>
+
+      <h3 style="color:green"> b - Actuators : </h3>
+      <h4>DC Motor : to rotate the solar panel to specific location with respect to sun lights location .</h4> 
+      <h4>Servo Motors :</h4>
+      <h4>Servo Motor 1 : to control the water tank electrovalve .</h4>
+      <h4>Servo Motor 2 : to control the water irrigation valve .</h4>
+      <h4>Servo Motor 3 + 4 : to control the plates to cover the farm in case of bad weather condition (for example the snow that can destroy the plants) .</h4>
+
+      <h3 style="color:green"> 2 - General Architecture (Sensors & Actuators Placement) : </h3>
+          <div class="image_container_same_line">
+                <img src="1_smart_solar_panel_tracker.png" class="img" alt="img1" width="800" height="600">
+                <img src="2_smart_auto_farming_system_draw.png" class ="img" alt="img1" width="800" height="800">
+          </div>  
+   </div>
+    
+  
+  <!----------------   ROW : Control System Design ----------------------------------->
+
+ <div class="row">
+      <h3 style="color:green"> 3 - System Operations FlowChart : </h3>
+      	<div class="image_container_same_line">
+      		<img  src="3_FLOW_CHART_smart_farming_system.png" class ="img" alt="img1" width="800" height="600">
+      	</div>
+  </div>
+
+  <!----------------   ROW : Engineering phase ----------------------------------->
+
+  <div class="row">
+      <h2 style="color:#21007D"> II - Engineering Phase :</h2>
+      <h3 style="color:green"> 1 - Technologies & Tools : </h3>
+      <h3 style="color:grey;"> a - Technologies & Components : </h3>
+      <h4>4 Sensors (rain/soil moisture/temperature/water level) + 4 servo motors + GPRS Module + LCD + Atmgea328P MicroController + NE555 'PWM generator Mode' .</h4>
+      <h3 style="color:grey"> b - Tools (software,firmware,hardware) : </h3>
+      	<div>
+      		<div class="image_container_same_line">
+      					<img src="C_langage.png" class="img" alt="img1" width="200" height="200">
+      					<img src="electronics.png" class ="img" alt="img1" width="200" height="200">
+      					<img src="arduino_ide.jpg" class ="img" alt="img1" width="200" height="200">
+      					<img src="iot.jpg" class ="img" alt="img1" width="200" height="200">
+      					<img src="isis_proteus.png" class ="img" alt="img1" width="200" height="200">
+    			</div>  
+      	</div>	
+  </div>
+
+  <!------------------- ROW : schematics ------------------------>
+
+
+  <div class="row">
+      <h3 style="color:green"> 2 - Schematics : </h3>
+			<div class="image_container_same_line">
+      			<img src="4_smart_auto_solar_tracker.PNG" class="img" alt="img1" width="1000" height="800">
+      			<img src="5_smart_farm_schematic.PNG" class ="img" alt="img1" width="1000" height="800">
+    	</div>  
+      <!-- demo schematics -->
+      <h3 style="color:green"> a - Smart Solar Panel Tracker schematic demo : </h3>
+      <div class="image_container_same_line">
+            <video width="640" height="360" controls>
+              <source src="smart_autonomous_solar_panel.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+      </div> 
+      <h3 style="color:green"> b - Smart & Autonomous Farming System schematic demo : </h3>
+      <div class="image_container_same_line">
+            <video width="640" height="360" controls>
+              <source src="smart_autonmous_farming_system.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+      </div>  
+      <h3> 
+  </div>
+
+<!------------------- ROW : Firmware code ------------------------>
+
+
+  <div class="row">
+      <h3 style="color:green"> 3 - Firmware & Software Implementation Code : </h3>
+      <h3 style="color:green"> a - Smart Solar Panel Tracker code : </h3>
+			<div class="image_container_same_line">
+      			<video width="640" height="360" controls>
+					  	<source src="arduino_smart_auto_solar_panel_code.mp4" type="video/mp4">
+					  	Your browser does not support the video tag.
+						</video>
+    	</div>  
+    	<h3> Smart Solar Panel Tracker Code Link : <a href="https://github.com/MohammedAmineDridi/Smart_-_Autonomous_Farming_System/blob/main/smart_solar_panel.ino" target="_blank">Code Link</a> </h3>
+      <h3 style="color:green"> b - Smart & Autonomous Farming System code : </h3>
+      <div class="image_container_same_line">
+            <video width="640" height="360" controls>
+              <source src="arduino_smart_farming_system_code.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+      </div>  
+      <h3> Smart & Autonomous Farming System Code Link : <a href="https://github.com/MohammedAmineDridi/Smart_-_Autonomous_Farming_System/blob/main/smart_auto_farm.ino" target="_blank">Code Link</a> </h3>
+  </div>
+
+</div> <!-- end of container -->
+
+<br>
+<br>
+<br>
+<br>
+</body>
+
+
+</body>
+</html>
+  

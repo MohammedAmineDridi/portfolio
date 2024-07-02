@@ -1,0 +1,20 @@
+************* Smart & Autonomous Farming System ****************
+
+- The goals of this project to create a smart and autonomous IOT farming system without human interaction with a system that can take all measurements from the farm for example : temperature,rain status,snow detection,soil moisture,tank water level indication,... and take decision from those measurements like : enable the irrigation motor that controls the irrigation electrovalve or water tank solenoid using a servo motor to open/close those valves in a certain angle given by PWM signal , also you can command those actuators using GPRS module that communicate with an application to tell you all farm informations and to control remotly those motors to open/close those solenoid .
+
+- This project composed of 2 circuits : 
+
+circuit (1) : - it's smart and automous solar panel tracker to control the solar panel rotation in sun direction to get more energy harvesting from sun and to power supply the main farming circuit using voltage accross those solar panels cells .
+
+circuit (2) : - it's the main circuit that get all farming measuremenets from an embedded sensors : 
+			- soil moisture sensor : to measure the farm soil moisture
+			- water level indicator : toget the percentage of water in the water tank 
+			- tempertaure sensor : to get the farm tempertaure 
+			- rain sensor : to get the rain status 
+			- snow detectio : with respect to rain sensor and tempertaure sensor values 
+		and actuators : - 4 servo motors : - motor 1 : to control the water tank electrovalve .
+						   - motor 2 : to control the water irrigation valve 
+						   - motor 3 + 4 : to control the plates to cover the farm in case of bad weather condition (for example the snow that 						   	   can destroy the plants) .
+
+
+- Technologies & Tools : Mixed signal electronics + Embedded firmware developpement + IOT + Isis Proteus Simulator (4 images)

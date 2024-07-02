@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Smart Knee Rehabilitation Device</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+
+<style>
+	.image_container_same_line {
+  text-align: center; /* Optional: Center the images within the container */
+}
+
+.img {
+  display: inline-block;
+  max-width: 100%; /* Optional: Ensure images do not exceed their container width */
+  height: auto; /* Maintain aspect ratio */
+  margin: 5px; /* Optional: Add margin between images */
+}
+</style>
+
+<body>
+
+<div class="jumbotron text-center">
+
+<h1 style="color: #cc064c;">Smart Knee Rehabilitation Device</h1>
+
+<p style="text-align: left;margin-left: 20px;">- The goal of this project is to create a smart knee rehabilitation device that restricts unexpected knee movement that can cause a knee problems and injuries .
+
+</p> 
+
+<p style="text-align: left;margin-left: 20px;">
+	- The solution is to create a device that sense the rotation angle of the knee, then define the threshold knee angle that cause a knee problem to create a control system algorithm that detect this unexpected wrong movement and try instantaneously to return back the knee to it's initial position (angle = 0->20°) using an industrial servo motor with high torque value controlled by current flow coming from the microcontroller to restrict those knee movements .
+</p>
+
+</div>
+  
+<div class="container">
+  <!-------------------- ROW : Concept & design phase ------------------------- --> 
+
+  <div class="row">
+      <h2 style="color:#21007D"> I - Concept & System Design Phase :</h2>
+      <h3 style="color:green"> 1 - Sensors : </h3>
+      <h4>a - Flex Sensor : to measue the knee's rotation angle in (°) .</h4>
+      <h4>b - Force Sensor : to measure the amount of force applied by the knee to the ground to calculate the amount of the motor torque
+      needed to stop or restrict this unexpected movement .</h4>
+      <h3 style="color:green"> 2 - Sensors placement : </h3>
+      		<div class="image_container_same_line">
+      					<img src="concept2_sensors_placement.jpg" class="img" alt="img1" width="400" height="300">
+      					<img src="concept3_sensor_placement.png" class ="img" alt="img1" width="400" height="300">
+    			</div>  
+   </div>
+    
+  
+  <!----------------   ROW : Control System Design ----------------------------------->
+
+ <div class="row">
+      <h3 style="color:green"> 3 - Control System Design : </h3>
+      	<div>
+      		<img style="margin-left:300px;" src="smart_knee_project_system_design.png" class ="img" alt="img1" width="600" height="600">
+      	</div>
+  </div>
+
+  <!----------------   ROW : Engineering phase ----------------------------------->
+
+  <div class="row">
+      <h2 style="color:#21007D"> II - Engineering Phase :</h2>
+      <h3 style="color:green"> 1 - Technologies & Tools : </h3>
+      <h3 style="color:grey;"> a - Technologies & Components : </h3>
+      <h4>Mixed Signal Electronics + Sensors (flex sensors + 2 force sensors 'in each foot') + Digital processing unit (MicroController) + Industrial Servo Motor .</h4>
+      <h3 style="color:grey"> b - Tools (software,firmware,hardware) : </h3>
+      	<div>
+      		<div class="image_container_same_line">
+      					<img src="C_langage.png" class="img" alt="img1" width="200" height="300">
+      					<img src="electronics.png" class ="img" alt="img1" width="200" height="300">
+      					<img src="firmware_developpement.png" class ="img" alt="img1" width="200" height="300">
+      					<img src="pid.png" class ="img" alt="img1" width="200" height="300">
+      					<img src="fritzing.jpg" class ="img" alt="img1" width="200" height="300">
+    			</div>  
+      	</div>	
+  </div>
+
+  <!------------------- ROW : schematics ------------------------>
+
+
+  <div class="row">
+      <h3 style="color:green"> 2 - Schematic : </h3>
+			<div class="image_container_same_line">
+      			<img src="schematic_img.PNG" class="img" alt="img1" width="550" height="600">
+      			<img src="components_schematic.PNG" class ="img" alt="img1" width="550" height="600">
+    	</div>  
+  </div>
+
+<!------------------- ROW : Firmware code ------------------------>
+
+
+  <div class="row">
+      <h3 style="color:green"> 3 - Firmware & PID Software Implementation Code : </h3>
+			<div class="image_container_same_line">
+      			<video width="640" height="360" controls>
+					  	<source src="arduino_code_smart_knee_device.mp4" type="video/mp4">
+					  	Your browser does not support the video tag.
+						</video>
+    	</div>  
+    	<h3>Firmware Code Link : <a href="https://github.com/MohammedAmineDridi/Smart-Knee-Rehabilitation-Device/blob/main/smart_knee_bracelet.ino" target="_blank">Code Link</a> </h3>
+  </div>
+
+</div> <!-- end of container -->
+
+<br>
+<br>
+<br>
+<br>
+</body>
+
+
+</body>
+</html>
+  

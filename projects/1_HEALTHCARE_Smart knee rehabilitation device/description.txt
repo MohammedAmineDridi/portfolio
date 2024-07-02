@@ -1,0 +1,8 @@
+************ Smart knee rehabilitation device **************
+
+- The goal of this project is to create a smart knee rehabilitation device that restrict unexpected knee mouvement that can cause a knee problems and injuries .
+- the solution to create a device that sense the rotation angle of the knee , then define the threeshold angle of knee that may cause a knee problem to create a control system algorithm that detect this unexpected wrong mouvement and try instantanously to return back the knee to it's initial position (angle = 0->5°) using an industrial servo motor with high torque value controlled by current flow comming from the microcontroller to restrict those knee mouvements.
+
+
+- Technologies & Tools : mixed electronic signals , firmware developement , control system PID , healthcare concept , fritzing .
+

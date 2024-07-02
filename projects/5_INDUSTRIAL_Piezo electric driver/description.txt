@@ -1,0 +1,13 @@
+******* Piezoelectric Driver Board ********
+
+The goal is to create a high voltage circuit driver for piezo-electric elements used in many application such as : inkjet piezo-electric printhead drivers/... 
+
+- This circuit has a build-in dynamic function generator which can produce (square,triangular and sin) waveforms using 1 mono-stable op-amp to generate a square wave and 2 integrators op-amps to produce the triangular and sine wave with 2 potentiometer to set the desired (frequency and amplitude) to drive any AC load with specific parameters .Also , it has a 8 bit shift register to driver 8 I/O pins up to +40V for piezo-electric loads .
+
+
+
+Technologies & Tools : mixed signal electronics (analog & digital signals) + arduino firmware + Isis Proteus simulator .
+
+
+just add (imgs for techs&tools : mixed signal electronics + arduino img + isis proteus img) (2 images)
+

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Smart Slingshot</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+
+<style>
+	/*
+.zoomBIn:hover {
+transform: scale(2.4);
+}
+*/
+</style>
+
+<body>
+
+<div class="jumbotron text-center">
+
+<h1 style="color: #cc064c;">Smart Slingshot</h1>
+
+<p style="text-align:left;margin-left: 20px;">- This project is : smart slingshot (slingshot or arrow game) , the idea is to design a smart slingshot system that shoots the object in specific target location whatever is the position of the source or the target , based on physics , dynamics , math calculations and system implementation using software and hardware , the system can choose the exact parameter values to shoot the object and hit the target correctly .
+</p> 
+
+</div>
+  
+<div class="container">
+	<h3>
+		There are two essential parameters in controlling this system : 
+		<h4> 
+		1 - Angle of support of the object that control (TETHA angle) of the object's projectile motion based on input params (DX/DY/L0/a/b/k/m) .
+		</h4>
+
+		<h4>
+		2 - Angle of manivelle (ALPHA) that controls the distance of elongation 'thread attraction' of this system based of input params (r,l,n,l1/DL) .
+		</h4>
+	</h3>
+  <!-------------------- ROW 1 ------------------------- --> 
+
+  <div class="row">
+    <div class="col-sm-4">
+      <h3 style="color:#21007D"> I - Modelization</h3>
+      <h4 style="color:green"> 1 - Smart Slingshot </h4>
+      <p>INPUT params : DX/DY/L0/a/b/k/m</p>
+      <p>OUTPUT params : TETHA angle = .. / Vi = ..</p>
+    </div>
+    <div class="col-sm-4">
+    	<br>
+    	<br>
+      <h4 style="color:green"> 2 - Bielle manivelle system </h4>
+      <p>INPUT params : r/l/n/l1_DL</p>
+      <p>OUTPUT_params : ALPHA angle = ...</p>
+    </div>
+  
+  </div>
+
+  <!-------------------- ROW 2 ------------------------- --> 
+  <div class="row">
+    <div class="col-sm-4">
+      <h4 style="color:green"> 3 - Explanatory images of the system</h4>
+      <img src="system_imgs/slinghsot.jpg" alt="img1" width="300" height="300">
+    </div>
+    <div class="col-sm-4">
+      <img src="system_imgs/Projectile-Motion.png" alt="img1" width="300" height="300">
+    </div>
+    <div class="col-sm-4">
+   		<img src="system_imgs/bielle_manivelle.png" alt="img1" width="300" height="300">
+    </div>
+    
+  </div>
+
+  <!-------------------- ROW 3 ------------------------- --> 
+
+   <div class="row" style="text-align: center;">
+       <img src="system_imgs/slingshot_vue_coupe.png" alt="img1" width="800" height="300">       
+  </div>
+
+  <!----------------   ROW 4 ----------------------------------->
+
+  <br>
+  <br>
+
+  <div class="row">
+      <h4 style="color:green"> 4 - System Equations </h4>
+      <p>Based on <b style="color:blue">projectile motion equations</b> and <b style="color:blue">newton's law</b> : </p>
+   </div>
+   <div class="row" style="text-align:center;"> 
+   	 <div class="col-sm-6">
+    	<br>
+    	<br>
+      <img src="img_and_GIFs/firing_system_equations.png" alt="img1" width="500" height="300">
+    </div>
+    <div class="col-sm-6">
+    	<br>
+   		<img src="img_and_GIFs/bielle_manivelle_equations.png" alt="img1" width="500" height="300">
+    </div>
+   </div>
+   
+ 
+<!--------------------- ROW 5 (partie 2 : Realisation & Implementation ) ----------------------------------------> 
+
+	<br>
+	<br>
+	<br>
+
+	<div class="row">
+	    <div class="col-sm-4">
+	      <h3 style="color:#21007D"> II - Realisation & Implementation</h3>
+	      <h4 style="color:green"> 1 - Software Implementation </h4>
+	    </div>
+  	</div>
+
+  	<div class="row">
+	    <div class="col-sm-12">
+	      <h4 style="color:#00b33a"> 1.1 - Automated Testing Software</h4>
+	      <h4> This is a software written in (c & python selenium web driver framework) to test the behavior of your 
+	      system in the web app simulator before the real world implementation . </h4>
+	    </div>
+
+  	</div>
+
+
+  	<div class="row">
+	    <div class="col-sm-12">
+	      <h4 style="color:#00b33a"> a - Tools & Langagues : </h4>
+	      <!--  C & Python & selenium -->
+	      <img src="img_and_GIFs/c.jpg" alt="img1" width="230" height="200">
+	      <img src="img_and_GIFs/python.png" alt="img1" width="230" height="200">
+	      <img src="img_and_GIFs/python_selenium.png" alt="img1" width="230" height="200">
+	    </div>
+  	</div>
+
+  	<div class="row">
+	    <div class="col-sm-12">
+	      <h4 style="color:#00b33a"> b - Demo : </h4>
+	      <!--  C & Python & selenium -->
+	      <img style="text-align:center;" src="img_and_GIFs/automated_test_sw.gif" alt="img1" width="1000" height="500">
+	    
+  		</div>
+  	</div>
+  	<br>
+  	<br>
+  	<div class="row">
+  		<div class="col-sm-12" style="font-weight: bold;font-size: 20px;">
+  		Code Testing SW Link : <a target="_blank"  href="https://github.com/MohammedAmineDridi/Firing_System/tree/main/calcul_projectile">  Code Testing SW Link </a>
+  		</div>
+  	</div>
+
+  	<br>
+  	<br>
+  	<br>
+  	<br>
+  	<br>
+  	<br>
+
+
+	<div class="row">
+	    <div class="col-sm-12">
+	      <h4 style="color:#00b33a"> 1.2 - System parameters Web application</h4>
+	      <h4> This is a web application written in (html,css,js,php,mysql) to define your system parameters after testing & checking it with the automated testing software . </h4>
+	    </div>
+
+  	</div>
+
+
+  	<div class="row">
+		<div class="col-sm-12">
+		      <h4 style="color:#00b33a"> a - Tools & Langagues : </h4>
+		      <!--  C & Python & selenium -->
+		      <img src="img_and_GIFs/html_css_js.png" alt="img1" width="230" height="200">
+		      <img src="img_and_GIFs/php.png" alt="img1" width="230" height="200">
+		      <img src="img_and_GIFs/mysql.png" alt="img1" width="230" height="200">
+		    </div>
+	 </div>
+
+	 <div class="row">
+		<div class="col-sm-12">
+		      <h4 style="color:#00b33a"> b - Architecture : </h4>
+		      <!--  C & Python & selenium -->
+		      <img src="img_and_GIFs/app_architecture.png" alt="img1" width="800" height="300">
+		    </div>
+	 </div>
+
+  	<div class="row">
+  		<h4 style="color:#00b33a"> c - Demo : </h4>
+	    <div class="col-sm-12" >
+	      <img src="img_and_GIFs/Friring_system_params.PNG" alt="img1" width="1000" height="500">
+	    </div>
+	    <br>
+	    <br>
+	    
+	    <div class="col-sm-12" style="padding-top: 30px;">
+	      <img src="img_and_GIFs/bielle_manivelle_system_params.PNG" alt="img1" width="1000" height="500">
+	    </div>
+	    <br>
+	    <br>
+
+	    <div class="col-sm-12" style="padding-top: 30px;">
+	      <img src="img_and_GIFs/system_control.PNG" alt="img1" width="1000" height="500">
+	    </div>
+  	</div>
+  	<br>
+  	<br>
+	<div class="row">
+  		<div class="col-sm-12" style="font-weight: bold;font-size: 20px;">
+  		Code Web App Link : <a target="_blank"  href="https://github.com/MohammedAmineDridi/Firing_System/tree/main/html"> Code Web App Link </a>
+  		</div>
+  	</div>
+
+
+  	<!-- embedded row --> 
+
+
+
+  	<br>
+  	<br>
+  	<br>
+  	<br>
+  	<br>
+  	<br>
+
+
+	<div class="row">
+	    <div class="col-sm-12">
+	      <h4 style="color:#00b33a"> 1.3 - Embedded system design</h4>
+	      <h4> This is the embedded system part where i choose the MCU , Sensors & Actuators for my project .</h4>
+	    </div>
+
+  	</div>
+
+
+  	<div class="row">
+	    <div class="col-sm-12">
+	      <h4 style="color:#00b33a"> a - Materiels : </h4>
+	      <img src="img_and_GIFs/esp32_wroom_32d_module.jpg" alt="img1" width="230" height="200">
+	      <img src="img_and_GIFs/laser_sensor.jpg" alt="img1" width="230" height="200">
+	      <img src="img_and_GIFs/ultrasonic_sensor.jpg" alt="img1" width="230" height="200">
+	      <img src="img_and_GIFs/servo_motor.jpg" alt="img1" width="230" height="200">
+	    </div>
+  	</div>
+
+  	<div class="row">
+  		<h4 style="color:#00b33a"> b - Demo : </h4>
+	    <div class="col-sm-12">
+	      <img src="img_and_GIFs/esp32_code.gif" alt="img1" width="1000" height="500">
+	    </div>
+  	</div>
+  	<br>
+  	<br>
+	<div class="row">
+  		<div class="col-sm-12" style="font-weight: bold;font-size: 20px;">
+  		Code Esp32 Link : <a target="_blank"  href="https://github.com/MohammedAmineDridi/Firing_System/blob/main/esp32/esp32_projectile_system.ino"> Code Esp32 Link </a>
+  		</div>
+  	</div>
+
+
+
+  	<!-- HW part --> 
+
+
+
+  	<br>
+  	<br>
+  	<br>
+  	<br>
+  	<br>
+  	<br>
+
+
+	<div class="row">
+	    <div class="col-sm-12">
+	      <h4 style="color:#00b33a"> 1.4 - Hardware system design</h4>
+	      <h4> This is the hardware system part where i create the PCB for my smart slingshot .</h4>
+	    </div>
+
+  	</div>
+
+
+  	<div class="row">
+
+	    <div class="col-sm-12">
+	      <h4 style="color:#00b33a"> a - Schematic : </h4>
+	      <img class="zoomBIn" src="img_and_GIFs/schematic.PNG" alt="img1" width="1000" height="500">
+	    </div>
+	</div>
+	<br>
+	<br>
+	<div class="row">
+		<div class="col-sm-12">
+	      <h4 style="color:#00b33a"> b - PCB Layout : </h4>
+	      <img src="img_and_GIFs/pcb_layout.PNG" alt="img1" width="1000" height="500">
+	    </div>
+	</div>
+	<br>
+	<br>
+	<div class="row"> 
+		<div class="col-sm-4">
+	      <h4 style="color:#00b33a"> c - 3D Board : </h4>
+	      <img src="img_and_GIFs/Board4.PNG" alt="img1" width="1000" height="500">
+	    </div>
+	</div>
+
+	    
+  	
+
+  	<br>
+  	<br>
+
+
+  	<br>
+  	<br>
+  	<br>
+  	<br>
+  	<br>
+  	<br>
+
+  		<div class="row">
+	    <div class="col-sm-12">
+	      <h4 style="color:#00b33a"> 1.4 - Conclusion & perspeective</h4>
+	      <br>
+	      <h4> Advantage is : scalable architecture , the calculation process is in server side
+instead of MCU (relaxing the cpu of mcu for less calculation).</h4>
+
+					<h4> if you like this project , i recommand you to do some opitimization tricks :  </h4>
+					<br>
+
+					<h4> 1 - Using seperate mcu's (master : for control system via wifi) & mcu2 (slave) for
+controlling and driving the 5 servo motors of the system and all sensors and actuators. </h4>
+					<br>
+
+
+					<h4> 2 - Use low layer (driver developpement) , then (HAL) : to reduce the compiling and execution time (high compiling & execution time).</h4>
+					<br>
+
+					<h4> 3 - Optimize the calculation of projectile angles by adding environmental factors such as (Friction, Air resistance, ...). </h4>
+
+					<br>
+					<h4>  4 - Target distance prediction (prediction to the next displacement of the target) => for
+optimize the calculation, using algorithms such as (Kalman filter) or
+artificial intelligence (AI) algorithms.</h4>
+
+	    </div>
+
+	    <br>
+	    <br>
+	    <br>
+
+  		</div>
+<br>
+	    <br>
+	    <br>
+  </div>
+
+</div>
+
+
+<script>
+	
+// zoom on click img hw
+
+function func1(){
+	//alert("test");
+}
+
+</script>
+
+</body>
+</html>
+  

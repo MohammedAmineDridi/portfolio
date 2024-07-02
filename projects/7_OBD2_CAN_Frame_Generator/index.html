@@ -1,0 +1,504 @@
+<html>
+
+<head>
+
+	<title> App OBD2 & CAN </title>
+
+	<style>
+		:root {
+  --background-gradient: linear-gradient(30deg, #f39c12 30%, #f1c40f);
+  --gray: #34495e;
+  --darkgray: #2c3e50;
+}
+
+select {
+  /* Reset Select */
+  appearance: none;
+  outline: 0;
+  border: 0;
+  box-shadow: none;
+  /* Personalize */
+  flex: 1;
+  padding: 0 1em;
+  color: #fff;
+  background-color: var(--darkgray);
+  background-image: none;
+  cursor: pointer;
+}
+/* Remove IE arrow */
+select::-ms-expand {
+  display: none;
+}
+
+/* Other styles*/
+body {
+  color: #fff;
+  background: var(--background-gradient);
+}
+/*
+h1 {
+  margin: 0 0 0.25em;
+}
+*/
+/*
+a {
+  font-weight: bold;
+  color: var(--gray);
+  text-decoration: none;
+  padding: .25em;
+  border-radius: .25em;
+  background: white;
+}
+*/
+
+/*
+.mode{
+	margin-top: 100px;
+	margin-left: 100px;
+}
+*/
+
+/* Mode */
+.select_mode {
+  top: -190px;
+  position: relative;
+  display: flex;
+  width: 20em;
+  height: 3em;
+  border-radius: .25em;
+  overflow: hidden;
+}
+/* Arrow */
+.select_mode::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1em;
+  background-color: #34495e;
+  transition: .25s all ease;
+  pointer-events: none;
+}
+
+/* Transition */
+.select_mode:hover::after {
+  color: #f39c12;
+}
+
+
+
+/* inline bloc1 and bloc2 */
+
+#one,#two{
+  display: inline-block; 
+  margin-left: 100px;
+  margin-top: 100px;
+}
+
+
+input{
+  border-radius: 0.25em;
+  height: 50px;
+  width: 600px;
+}
+
+label,h3{
+  color: black;
+  font-size: 18;
+  font-weight: bold;
+}
+
+#container{
+  margin-top: 20px;
+}
+
+#made_by{
+  margin-top: -300px;
+  margin-left: 522px;
+  color : #2c3e50;
+}
+
+a{
+  color : #2c3e50;
+}
+
+#tool_definition{
+  margin-left: 200px;
+  margin-top: -50px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="header_part">
+
+<img id ="img_obd2" src="obd2_test_img.png" alt="obd2 img explication" width="400" height="300">
+
+<h1 id="made_by"> This tool allows you to choose your obd2 topic , and it will generate your obd2 msg and encapsulate it into can frame , this tool Made By : <a href="https://www.linkedin.com/in/dridi-mohammed-amine-5b6439222/" target="_blank"> Dridi Mohammed Amine </a> </h1>
+</div>
+
+
+<!-- Mode  -->
+
+
+<div id="container">
+<div id="one" class="mode">
+<label for="select_mode">Choose your Request :</label>
+<div class="select_mode" style="margin-top: 200px;">
+  <select onchange="Select_Service(this.value)">
+
+    <!-- ******************************** MODE 1 *************************************** -->
+
+    <!-- pid = 0 -> 10 -->
+    <option value="mode_01,pid_03,min_0,max_16,returned_dataBytes_1,unit_status,formula_A,">Fuel system status</option> <!-- pid = 3 -->
+    <option value="mode_01,pid_04,min_0,max_100,returned_dataBytes_1,unit_%,formula_A/2.55,">Calculated engine load</option>
+    <option value="mode_01,pid_05,min_-40,max_215,returned_dataBytes_1,unit_°C,formula_A-40,">Engine coolant temperature</option>
+    <option value="mode_01,pid_06,min_-100,max_99.2,returned_dataBytes_1,unit_%,formula_A/1.28-100,">Short term fuel trim—Bank 1</option>
+    <option value="mode_01,pid_07,min_-100,max_99.2,returned_dataBytes_1,unit_%,formula_A/1.28-100,">Long term fuel trim—Bank 1</option>
+    <option value="mode_01,pid_08,min_-100,max_99.2,returned_dataBytes_1,unit_%,formula_A/1.28-100,">Short term fuel trim—Bank 2</option>
+    <option value="mode_01,pid_09,min_-100,max_99.2,returned_dataBytes_1,unit_%,formula_A/1.28-100,">Long term fuel trim—Bank 2</option>
+    <option value="mode_01,pid_10,min_0,max_765,returned_dataBytes_1,unit_Kpa,formula_3A,">Fuel pressure</option>
+
+    <!-- pid = 11 -> 18 -->
+
+    <option value="mode_01,pid_11,min_0,max_255,returned_dataBytes_1,unit_Kpa,formula_A,">Intake manifold absolute pressure</option>
+    <option value="mode_01,pid_12,min_0,max_16.383.75,returned_dataBytes_2,unit_rpm,formula_256*A+B/4,">Engine speed</option>
+    <option value="mode_01,pid_13,min_0,max_255,returned_dataBytes_1,unit_km/h,formula_A,">Vehicle speed</option>
+    <option value="mode_01,pid_14,min_-64,max_63.5,returned_dataBytes_1,unit_TDC,formula_A/2-64,">Timing advance</option>
+    <option value="mode_01,pid_15,min_-40,max_215,returned_dataBytes_1,unit_°C,formula_A-40,">Intake air temperature</option>
+    <option value="mode_01,pid_16,min_0,max_655.35,returned_dataBytes_2,unit_g/s,formula_256*A+B/100,">air flow rate</option>
+    <option value="mode_01,pid_17,min_0,max_100,returned_dataBytes_1,unit_%,formula_A/2.55,">Throttle position</option>
+    <option value="mode_01,pid_18,min_1,max_8,returned_dataBytes_1,unit_status,formula_A,">Commanded secondary air status</option>
+    
+    <!-- pid = 20->30 -->
+    <option value="mode_01,pid_20,min_0,max_1.275,returned_dataBytes_1,unit_V,formula_A/200,">Oxygen Sensor 1</option>
+    <option value="mode_01,pid_21,min_0,max_1.275,returned_dataBytes_1,unit_V,formula_A/200,">Oxygen Sensor 2</option>
+    <option value="mode_01,pid_22,min_0,max_1.275,returned_dataBytes_1,unit_V,formula_A/200,">Oxygen Sensor 3</option>
+    <option value="mode_01,pid_23,min_0,max_1.275,returned_dataBytes_1,unit_V,formula_A/200,">Oxygen Sensor 4</option>
+    <option value="mode_01,pid_24,min_0,max_1.275,returned_dataBytes_1,unit_V,formula_A/200,">Oxygen Sensor 5</option>
+    <option value="mode_01,pid_25,min_0,max_1.275,returned_dataBytes_1,unit_V,formula_A/200,">Oxygen Sensor 6</option>
+    <option value="mode_01,pid_26,min_0,max_1.275,returned_dataBytes_1,unit_V,formula_A/200,">Oxygen Sensor 7</option>
+    <option value="mode_01,pid_27,min_0,max_1.275,returned_dataBytes_1,unit_V,formula_A/200,">Oxygen Sensor 8</option>
+    <option value="mode_01,pid_28,min_1,max_250,returned_dataBytes_1,unit_type,formula_A,">OBD standards this vehicle conforms to</option>
+    <option value="mode_01,pid_30,min_0,max_0,returned_dataBytes_1,unit_none,formula_A,">Auxiliary input status</option>
+
+    <!-- pid = 31-> 40 --> 
+
+    <option value="mode_01,pid_31,min_0,max_65.535,returned_dataBytes_2,unit_s,formula_A*256+B,">Run time since engine start</option>
+    <option value="mode_01,pid_33,min_0,max_65.535,returned_dataBytes_2,unit_km,formula_A*256+B,">  Distance traveled with malfunction indicator lamp (MIL) on</option>
+    <option value="mode_01,pid_34,min_0,max_5177.265,returned_dataBytes_2,unit_Kpa,formula_0.079*(256*A+B),"> Fuel Rail Pressure (relative to manifold vacuum) </option>
+    <option value="mode_01,pid_35,min_0,max_655.350,returned_dataBytes_2,unit_Kpa,formula_10*(256*A+B),">Fuel Rail Gauge Pressure (diesel, or gasoline direct injection)</option>
+
+    <!-- pid = 41 -> 50 --> 
+
+    <option value="mode_01,pid_44,min_0,max_100,returned_dataBytes_1,unit_%,formula_A/2.55,">Commanded EGR</option>
+    <option value="mode_01,pid_45,min_-100,max_99.2,returned_dataBytes_1,unit_%,formula_A/1.28-100,">EGR Error</option>
+    <option value="mode_01,pid_46,min_0,max_100,returned_dataBytes_1,unit_%,formula_A/2.55,">Commanded evaporative purge</option>
+    <option value="mode_01,pid_47,min_0,max_100,returned_dataBytes_1,unit_%,formula_A/2.55,">Fuel Tank Level Input</option>    
+    <option value="mode_01,pid_48,min_0,max_255,returned_dataBytes_1,unit_none,formula_A,">Warm-ups since codes cleared</option> 
+    <option value="mode_01,pid_49,min_0,max_65.535,returned_dataBytes_2,unit_km,formula_256*A+B,">Distance traveled since codes cleared</option>
+    <option value="mode_01,pid_50,min_-8.192,max_8191.75,returned_dataBytes_2,unit_Pa,formula_(256*A+B)/4,">Warm-ups since codes cleared</option> 
+
+    <!-- pid = 51 -> 60 -->
+    <option value="mode_01,pid_51,min_0,max_250,returned_dataBytes_1,unit_Kpa,formula_A,">Absolute Barometric Pressure</option>
+
+
+    <!-- pid = 60 -> 70 --> 
+    <option value="mode_01,pid_60,min_-40,max_6.513.5,returned_dataBytes_2,unit_°C,formula_(A*256+B/10)-40,">Catalyst Temperature: Bank 1, Sensor 1</option>
+    <option value="mode_01,pid_61,min_-40,max_6.513.5,returned_dataBytes_2,unit_°C,formula_(A*256+B/10)-40,">Catalyst Temperature: Bank 2, Sensor 1</option>
+    <option value="mode_01,pid_62,min_-40,max_6.513.5,returned_dataBytes_2,unit_°C,formula_(A*256+B/10)-40,">Catalyst Temperature: Bank 1, Sensor 2</option>
+    <option value="mode_01,pid_63,min_-40,max_6.513.5,returned_dataBytes_2,unit_°C,formula_(A*256+B/10)-40,">Catalyst Temperature: Bank 2, Sensor 2</option>
+    <option value="mode_01,pid_65,min_none,max_none,returned_dataBytes_4,unit_none,formula_ABCD,">Monitor status this drive cycle</option>
+    <option value="mode_01,pid_66,min_0,max_65.535,returned_dataBytes_2,unit_V,formula_(256*A+B)/1000,">Control module voltage</option>
+    <option value="mode_01,pid_67,min_0,max_25.700,returned_dataBytes_2,unit_%,formula_2.55*(256*A+B),">Absolute load value</option>    
+    <option value="mode_01,pid_68,min_0,max_-1027,returned_dataBytes_2,unit_ratio,formula_2/65536*(256*A+B),">Commanded Air-Fuel Equivalence Ratio</option>   
+    <option value="mode_01,pid_69,min_0,max_100,returned_dataBytes_1,unit_%,formula_A/2.55,">Relative throttle position</option>
+    <option value="mode_01,pid_70,min_-40,max_215,returned_dataBytes_1,unit_°C,formula_A-40,">Ambient air temperature</option>
+
+    
+    <!-- pid = 71 -> 80 -->
+    <option value="mode_01,pid_71,min_0,max_100,returned_dataBytes_1,unit_°%,formula_A/2.55,">Absolute throttle position B</option>
+    <option value="mode_01,pid_72,min_0,max_100,returned_dataBytes_1,unit_°%,formula_A/2.55,">Absolute throttle position C</option>
+    <option value="mode_01,pid_73,min_0,max_100,returned_dataBytes_1,unit_°%,formula_A/2.55,">Accelerator pedal position D</option>
+    <option value="mode_01,pid_74,min_0,max_100,returned_dataBytes_1,unit_°%,formula_A/2.55,">Accelerator pedal position E</option>
+    <option value="mode_01,pid_75,min_0,max_100,returned_dataBytes_1,unit_°%,formula_A/2.55,">Accelerator pedal position F</option>
+    <option value="mode_01,pid_76,min_0,max_100,returned_dataBytes_1,unit_°%,formula_A/2.55,">Commanded throttle actuator</option>
+    <option value="mode_01,pid_77,min_0,max_65.535,returned_dataBytes_2,unit_min,formula_256*A+B,">Time run with MIL on</option>
+    <option value="mode_01,pid_78,min_0,max_65.535,returned_dataBytes_2,unit_min,formula_256*A+B,">Time since trouble codes cleared</option>
+    <option value="mode_01,pid_79,min_0,max_255,returned_dataBytes_4,unit_ratio/V/ma/Kpa,formula_ABCD,">Maximum value for Fuel–Air equivalence ratio, oxygen sensor voltage, oxygen sensor current, and intake manifold absolute pressure</option>
+    <option value="mode_01,pid_80,min_0,max_2550,returned_dataBytes_4,unit_g/s,formula_ABCD,">Maximum value for air flow rate from mass air flow sensor</option>
+
+
+    <!-- pid = 81 -> 90 -->
+    <option value="mode_01,pid_81,min_0,max_23,returned_dataBytes_1,unit_none,formula_A,">Fuel Type</option>
+    <option value="mode_01,pid_82,min_0,max_100,returned_dataBytes_1,unit_%,formula_A*100/255,">Ethanol fuel %</option>
+    <option value="mode_01,pid_83,min_0,max_327.675,returned_dataBytes_2,unit_Kpa,formula_(A*256)+B/200,">Absolute Evap system Vapor Pressure</option>
+    <option value="mode_01,pid_84,min_-32.768,max_32.767,returned_dataBytes_2,unit_Pa,formula_(256*A)+B,">Evap system vapor pressure</option>
+
+    <option value="mode_01,pid_85,min_-100,max_99.2,returned_dataBytes_2,unit_%,formula_( (100/128)*A-100 (100/128)*B-100 ),">Short term secondary oxygen sensor trim, A: bank 1, B: bank 3</option>
+    <option value="mode_01,pid_86,min_-100,max_99.2,returned_dataBytes_2,unit_%,formula_( (100/128)*A-100 (100/128)*B-100 ),">Long term secondary oxygen sensor trim, A: bank 1, B: bank 3</option>
+    <option value="mode_01,pid_87,min_-100,max_99.2,returned_dataBytes_2,unit_%,formula_( (100/128)*A-100 (100/128)*B-100 ),">Short term secondary oxygen sensor trim, A: bank 2, B: bank 4</option>
+    <option value="mode_01,pid_88,min_-100,max_99.2,returned_dataBytes_2,unit_%,formula_( (100/128)*A-100 (100/128)*B-100 ),">Long term secondary oxygen sensor trim, A: bank 2, B: bank 4</option>
+    <option value="mode_01,pid_89,min_0,max_655.350,returned_dataBytes_2,unit_Kpa,formula_10*(256*A+B),">Fuel rail absolute pressure  </option>
+    <option value="mode_01,pid_90,min_0,max_100,returned_dataBytes_1,unit_%,formula_((100/255)*A),">Relative accelerator pedal position</option>
+
+
+    <!-- pid = 91 -> 100 -->
+    <option value="mode_01,pid_91,min_0,max_100,returned_dataBytes_1,unit_%,formula_((100/255)*A),">Hybrid battery pack remaining life</option>
+    <option value="mode_01,pid_92,min_-40,max_210,returned_dataBytes_1,unit_°C,formula_A-40,">Engine oil temperature</option>
+    <option value="mode_01,pid_93,min_-210,max_301.992,returned_dataBytes_2,unit_°,formula_((256*A+B)/128)-210,">Fuel injection timing  </option>
+    <option value="mode_01,pid_94,min_0,max_3212.75,returned_dataBytes_2,unit_L/h,formula_((256*A+B)/20),">Engine fuel rate</option>
+    <option value="mode_01,pid_95,min_0,max_255,returned_dataBytes_1,unit_none,formula_A,">Emission requirements to which vehicle is designed</option>
+    <option value="mode_01,pid_97,min_-125,max_130,returned_dataBytes_1,unit_%,formula_A-125,">Driver's demand engine - percent torque</option>
+    <option value="mode_01,pid_98,min_-125,max_130,returned_dataBytes_1,unit_%,formula_A-125,">Actual engine - percent torque</option>
+    <option value="mode_01,pid_99,min_0,max_65.535,returned_dataBytes_2,unit_N.m,formula_256*A+B,">Engine reference torque</option>
+    <option value="mode_01,pid_100,min_-125,max_130,returned_dataBytes_5,unit_%,formula_A-125 B-125 C-125 D-125 E-125,">Engine percent torque data</option>
+
+
+    <!-- pid = 101 -> 110 -->
+    <option value="mode_01,pid_102,min_0,max_2047.96875,returned_dataBytes_5,unit_g/s,formula_Sensor A:
+    256*B+C/32  Sensor B: 256*D+E/32,">Mass air flow sensor</option>
+    <option value="mode_01,pid_103,min_-40,max_215,returned_dataBytes_3,unit_°C,formula_Sensor 1: B-40  Sensor 2: C-40,">Engine coolant temperature</option>
+    <option value="mode_01,pid_104,min_-40,max_215,returned_dataBytes_3,unit_°C,formula_Sensor 1: B-40  Sensor 2: C-40,">Intake air temperature sensor</option>
+    
+    <option value="mode_01,pid_106,min_0,max_255550,returned_dataBytes_5,unit_none,formula_ABCDE,">Commanded Diesel intake air flow control and relative intake air flow position</option>
+    <option value="mode_01,pid_107,min_0,max_255550,returned_dataBytes_5,unit_none,formula_ABCDE,">Exhaust gas recirculation temperature</option>
+    <option value="mode_01,pid_108,min_0,max_255550,returned_dataBytes_5,unit_none,formula_ABCDE,">Commanded throttle actuator control and relative throttle position</option>
+  
+
+    <!-- pid = 111 -> 120 -->
+    <!-- pid = 120 -> 130 -->
+
+    <option value="mode_01,pid_124,min_0,max_255550,returned_dataBytes_2,unit_°C,formula_(256*A/10)-40,">Diesel Particulate filter (DPF) temperature</option>
+
+    <!-- pid = 130 -> 140 -->
+    <!-- pid = 140 -> 150 -->
+
+    <option value="mode_01,pid_141,min_0,max_100,returned_dataBytes_1,unit_%,formula_A,">Throttle Position G</option>
+    <option value="mode_01,pid_142,min_-125,max_130,returned_dataBytes_1,unit_%,formula_A-125,">Engine Friction - Percent Torque</option>
+
+    <!-- pid = 150 -> 160 -->
+    <!-- pid = 160 -> 170 --> 
+    <option value="mode_01,pid_162,min_0,max_2047.96875,returned_dataBytes_2,unit_mg/stroke,formula_(256*A+B)/32,">Cylinder Fuel Rate</option>
+    <option value="mode_01,pid_164,min_0,max_65.535,returned_dataBytes_4,unit_ratio,formula_(256*C+D)/1000,">Transmission Actual Gear</option>
+    <option value="mode_01,pid_165,min_0,max_127.5,returned_dataBytes_4,unit_%,formula_B/2,">Commanded Diesel Exhaust Fluid Dosing</option>
+    <option value="mode_01,pid_166,min_0,max_429.496.729.5,returned_dataBytes_4,unit_km,formula_( A*(2p24)+B*(2p16)+C*(2p8) / 10 ),">Odometer</option>
+
+
+
+
+  </select>
+
+</div>
+</div>
+
+
+<!-- 4 result search bars for OBD2/CAN req/response FRAMES -->
+
+
+<div id="two">
+
+  <label for="obd2_req_msg">OBD2 Request Message :&nbsp;&nbsp;</label>
+  <input type="text" id="obd2_req_msg" name="obd2_req_msg" readonly><br><br>
+  <label for="can_req_msg">CAN Request Message :&nbsp;&nbsp;&nbsp;&nbsp;</label>
+  <input type="text" id="can_req_msg" name="can_req_msg" readonly><br><br>
+
+  <br>
+  <hr>
+  <br>
+
+  <label for="obd2_res_msg">OBD2 Response Message :</label>
+  <input type="text" id="obd2_res_msg" name="obd2_res_msg" readonly><br><br>
+  <label for="can_res_msg">CAN Response Message :&nbsp;&nbsp;</label>
+  <input type="text" id="can_res_msg" name="can_res_msg" readonly><br><br>
+
+  <h3 id="formula_expression"> Formula = </h3>
+
+<p style="color:black"> PS : you can change the can id (11 bits)</p>
+
+</div>
+
+
+</div>
+
+
+
+
+<script>
+
+// main variables .
+var Mode,Pid,ReturnedDataBytes,Min,Max,Unit,Forumla;
+
+var Full_OBD2_Req_Msg;
+var full_can_request_frame;
+
+var Full_OBD2_Response_Msg;
+var full_can_response_frame;
+
+
+var Service_Sentence_Infos = "";
+
+function Select_Service(service_infos){
+	Service_Sentence_Infos = service_infos;
+	//alert(Service_Sentence_Infos);
+  Extract_OBD2_Msg_Request_Sentence();
+
+  // put the frame (obd2 & can) in input html 
+  var input_obd2_req_msg = document.getElementById("obd2_req_msg");
+  input_obd2_req_msg.value = Full_OBD2_Req_Msg;
+
+  var input_can_req_msg = document.getElementById("can_req_msg");
+  input_can_req_msg.value = full_can_request_frame;
+
+  var input_obd2_response_mg = document.getElementById("obd2_res_msg");
+  input_obd2_response_mg.value = Full_OBD2_Response_Msg;
+
+  var input_can_response_msg = document.getElementById("can_res_msg");
+  input_can_response_msg.value = full_can_response_frame;
+
+  // add forumla in reception (result) .
+
+  document.getElementById("formula_expression").innerText = "Formula = "+Forumla+" ("+Unit+") ";
+} 
+
+function Extract_OBD2_Msg_Request_Sentence(){
+
+  var position_virgule = 0;
+  var variable_number = 0;
+  var sentence_final ="";
+  for (var i = position_virgule ; i < Service_Sentence_Infos.length ; i++) {
+    sentence_final += Service_Sentence_Infos[i];
+    if ( Service_Sentence_Infos[i] == "," ) { 
+        variable_number++;
+        sentence_final = sentence_final.substring(0,sentence_final.length-1);
+        
+        // enlever .._ from sentence 
+        for (var j=0 ; j < sentence_final.length ; j++) {
+          if ( sentence_final[j] == "_" ){
+            sentence_final = sentence_final.substring(j+1,sentence_final.length);
+          }
+        }
+        
+        if ( variable_number == 1 ){
+            Mode = sentence_final;
+        }
+        if ( variable_number == 2 ){
+            Pid = sentence_final;
+        }
+        if ( variable_number == 3 ){
+            Min = sentence_final;
+        }
+        if ( variable_number == 4 ){
+            Max = sentence_final;
+        }
+        if (variable_number == 5 ){
+            ReturnedDataBytes = sentence_final;
+        }
+        if (variable_number == 6){
+           Unit = sentence_final;
+        }
+        if (variable_number == 7){
+           Forumla = sentence_final;
+        }
+        sentence_final = "";
+        position_virgule = i+1;
+    }
+  }
+
+// final OBD2 extract informations .
+/*
+alert("Mode = "+Mode+" / PID = "+Pid+ " / Returned DataBytes = "+ReturnedDataBytes+" / Min = "+Min+" / Max = "+Max+" / Unit = "
++ Unit+" / Formula = " + Forumla);
+*/
+
+Encode_final_obd2_req_frame(); // step 2 : full OBD2 request frame/msg .
+CAN_OBD2_req_Msg_Encapsulation(); // step 3 : full obd2 request msg encapsulated in can frame .
+
+OBD2_Res_Msg(); // preventing response = fct (msg req) .
+OBD2_Res_Msg_CAN_ENCAPSULATION() ; // step 4 : encapsulation de resultat prevu .
+}
+
+
+function Encode_final_obd2_req_frame(){
+
+      var req_id = "0x7DF";
+      var length = "0x02";
+      var PID;
+      var MODE = "0x0"+parseInt(Mode).toString(16); // because : MODE = 1 -> 9 ==> [01->0A] req .
+      // PID : 1 -> 196
+      if ( Pid < 16 ){
+        PID = "0x0"+parseInt(Pid).toString(16); 
+      } else {
+        PID = "0x"+parseInt(Pid).toString(16); 
+      }
+      
+      Full_OBD2_Req_Msg = req_id +" "+ length +" "+ MODE+" "+PID;
+      //alert("full obd2 'REQUEST' message frame = " + Full_OBD2_Req_Msg );
+}
+
+
+
+function CAN_OBD2_req_Msg_Encapsulation(){
+var can_id = "0x1FF"; // exemple of random CAN_ID(11bits)
+var RTR = 1; // RTR = 1 (remote/request frame) 
+var IDE = 0; // in case of can in standard mode .
+var DLC = "0x"+5; // DLC '4bits' = 5 octets (5 = id '2 bytes_12bits' + length '1byte' + Mode '1 byte' + PID '1 byte') . 
+var DATA = Full_OBD2_Req_Msg;
+// crc+ack 'calcul not required' .
+full_can_request_frame = "ID : "+can_id+" / RTR = "+RTR+" / IDE = "+IDE+" / DLC = "+DLC+" / DATA = "+DATA ;
+//alert("full can frame for request : " + full_can_request_frame );
+}
+
+/* ------------ RESPONSE ----------------------*/
+
+function OBD2_Res_Msg(){
+
+  var tab = ['Ah','Bh','Ch','Dh','Eh'];
+  
+  //response prevu par le ECU de vehicule .
+  var response_id = "0x7E8";
+  var length = "0x0"+String(2+parseInt(ReturnedDataBytes)); // MAX ReturnedDataBytes = 4 (Ah,Bh,Ch,Dh) .
+  var PID;
+  var MODE = "0x4"+parseInt(Mode).toString(16); // because : MODE = 1 -> 9 [41 -> 4A] response .
+  // PID : 1 -> 196
+  if ( Pid < 16 ){
+  PID = "0x0"+parseInt(Pid).toString(16); 
+  } else {
+  PID = "0x"+parseInt(Pid).toString(16); 
+  }
+  var Data = "";
+  for(var i=0 ; i < ReturnedDataBytes ; i++){
+    Data += (tab[i]+" ");
+  }
+      
+  Full_OBD2_Response_Msg = response_id +" "+ length +" "+ MODE+" "+PID+" "+Data;
+  //alert("resultat prevu : full obd2 'RESPONSE' message frame = " + Full_OBD2_Response_Msg );
+
+}
+
+function OBD2_Res_Msg_CAN_ENCAPSULATION(){
+
+var can_id_response = "0x31E"; // exemple of random CAN_ID(11bits)
+var RTR_response = 0; // RTR = 1 (data-response frame) 
+var IDE_response = 0; // in case of can in standard mode .
+var DLC_response = "0x"+(5+parseInt(ReturnedDataBytes)); // DLC '4bits' = 2 octets ( id '2 bytes_12bits' + length '1byte' + Mode '1 byte' + PID '1 byte + Data 'nbrReturnedData bytes) . 
+var DATA_res = Full_OBD2_Response_Msg;
+// crc+ack 'calcul not required' .
+full_can_response_frame = "ID : "+can_id_response+" / RTR = "+RTR_response+" / IDE = "+IDE_response+" / DLC = " +DLC_response+" / DATA = "+DATA_res ;
+//alert("full can frame for 'response' : " + full_can_response_frame );
+
+//alert("formula = " + Forumla);
+
+}
+
+
+
+
+</script>
+
+</body>
+
+</html>
